@@ -49,6 +49,21 @@ describe('UserList', () => {
     );
   });
 
+  it('shows message if search result is empty', () => {
+    jest.spyOn(useSearchUsersModule, 'useSearchUsers').mockReturnValue({
+      isSuccess: true,
+    } as UseQueryResult<IUser[]>);
+    render(
+      <SearchContextProviderMock searchTerm={searchTerm}>
+        <UserList />
+      </SearchContextProviderMock>,
+    );
+
+    expect(
+      screen.getByText('There are no such users ¯\\_(ツ)_/¯'),
+    ).toBeInTheDocument();
+  });
+
   it('shows error message on error', () => {
     jest.spyOn(useSearchUsersModule, 'useSearchUsers').mockReturnValue({
       isError: true,

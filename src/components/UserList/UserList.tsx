@@ -13,7 +13,7 @@ import './UserList.css';
 export const UserList: FC = () => {
   const { searchTerm } = useContext(SearchContext)!;
   const isEnabled = Boolean(searchTerm);
-  const { data, isError, isLoading } = useSearchUsers(searchTerm, {
+  const { data, isError, isLoading, isSuccess } = useSearchUsers(searchTerm, {
     isEnabled,
   });
 
@@ -23,6 +23,11 @@ export const UserList: FC = () => {
       {isError && (
         <Message type="error">
           Sorry, something went wrong. Probably rate limit exceeded.
+        </Message>
+      )}
+      {!data?.length && isSuccess && (
+        <Message type="notification">
+          There are no such users ¯\_(ツ)_/¯
         </Message>
       )}
       {data?.map((user) => (

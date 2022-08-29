@@ -40,7 +40,6 @@ describe('SearchContext', () => {
         <Consumer />
       </SearchContextProvider>,
     );
-
     const button = getButton();
 
     await user.click(button);
