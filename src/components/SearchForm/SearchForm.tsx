@@ -2,9 +2,11 @@ import React, { ChangeEvent, FC, FormEvent, useContext, useState } from 'react';
 
 import { SearchContext } from '../../context/SearchContext';
 
+const MIN_VALUE_LENGTH = 1;
+
 const isValueValid = (value: string) => {
   const trimmedValue = value.trim();
-  return trimmedValue.length >= 3;
+  return trimmedValue.length >= MIN_VALUE_LENGTH;
 };
 
 const prepareValue = (value: string) => {
@@ -18,7 +20,7 @@ export const SearchForm: FC = () => {
   const [inputValue, setInputValue] = useState('');
   const [isButtonDisabled, setIsButtonDisabled] = useState(true);
 
-  const { updateSearchTerm, isError } = useContext(SearchContext)!;
+  const { updateSearchTerm } = useContext(SearchContext)!;
 
   const handleFormSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -42,12 +44,7 @@ export const SearchForm: FC = () => {
       <div className="flex flex-col gap-2">
         <input
           id="search-input"
-          className={`flex-1 border p-2 bg-gray-100 rounded-sm transition-colors
-        ${
-          isError
-            ? 'border-red-600 focus:border-red-600 focus:outline-red-600 text-black'
-            : 'border-gray-300 focus:border-brand-500 focus:outline-brand-500'
-        }`}
+          className="flex-1 border p-2 bg-gray-100 rounded-sm transition-colors border-gray-300 focus:border-brand-500 focus:outline-brand-500"
           type="text"
           title="Enter GitHub username"
           placeholder="Enter username"

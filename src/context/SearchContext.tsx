@@ -1,11 +1,10 @@
-import { createContext, FC, ReactNode, useEffect, useState } from 'react';
+import { createContext, FC, ReactNode, useState } from 'react';
 
 export type UpdateSearchTerm = (value: string) => void;
 
 export interface ISearchContext {
   searchTerm: string;
   updateSearchTerm: UpdateSearchTerm;
-  isError: boolean;
 }
 
 export const SearchContext = createContext<ISearchContext | null>(null);
@@ -23,7 +22,6 @@ export const SearchContextProvider: FC<{ children: ReactNode }> = ({
       value={{
         searchTerm,
         updateSearchTerm,
-        isError: false,
       }}>
       {children}
     </SearchContext.Provider>

@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 
 import { QueryKey } from '..';
 import { searchUsers } from './searchUsers';
-import { transformResponse } from './transformers';
+import { transformResponse } from './transformResponse';
 
 export function useSearchUsers(
   searchTerm: string,
