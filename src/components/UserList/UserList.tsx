@@ -18,7 +18,7 @@ export const UserList: FC = () => {
   });
 
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-2 empty:hidden">
       {isEnabled && isLoading && <Loader isLoading={true} />}
       {isError && (
         <Message type="error">
