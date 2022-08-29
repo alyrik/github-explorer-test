@@ -9,10 +9,11 @@ export interface ISearchContext {
 
 export const SearchContext = createContext<ISearchContext | null>(null);
 
-export const SearchContextProvider: FC<{ children: ReactNode }> = ({
-  children,
-}) => {
-  const [searchTerm, setSearchTerm] = useState('');
+export const SearchContextProvider: FC<{
+  children: ReactNode;
+  searchTerm?: string;
+}> = ({ children, searchTerm }) => {
+  const [searchTermLocal, setSearchTerm] = useState(searchTerm ?? '');
   const updateSearchTerm: UpdateSearchTerm = (value: string) => {
     setSearchTerm(value);
   };
@@ -20,7 +21,7 @@ export const SearchContextProvider: FC<{ children: ReactNode }> = ({
   return (
     <SearchContext.Provider
       value={{
-        searchTerm,
+        searchTerm: searchTermLocal,
         updateSearchTerm,
       }}>
       {children}
