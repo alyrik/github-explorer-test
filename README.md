@@ -2,6 +2,8 @@
 
 **Technologies**: React, React Query, Tailwind CSS, Jest, React Testing Library, GitHub API.
 
+https://github-explorer-test.vercel.app/
+
 ## Available Scripts
 
 In the project directory, you can run:
