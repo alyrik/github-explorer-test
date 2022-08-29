@@ -38,6 +38,7 @@ export const UserList: FC = () => {
           }
           lazyRender={true}
           transitionTime={300}
+          tabIndex={0}
           triggerClassName="block p-2 w-full bg-gray-150 rounded-sm transition-colors hover:bg-gray-200"
           triggerOpenedClassName="block p-2 w-full bg-gray-150 rounded-sm transition-colors hover:bg-gray-200 collapsible-trigger-open"
           contentInnerClassName="py-2 min-h-[80px]">

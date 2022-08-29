@@ -6,7 +6,7 @@ export interface IRepoRaw {
   html_url: string;
   description: string | null;
   stargazers_count: number;
-  language: string;
+  language: string | null;
 }
 
 export interface IRepo {
@@ -15,5 +15,5 @@ export interface IRepo {
   url: string;
   description: string | null;
   starCount: number;
-  language: string;
+  language: string | null;
 }
