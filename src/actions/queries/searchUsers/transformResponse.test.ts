@@ -1,7 +1,7 @@
 import { transformResponse } from './transformResponse';
 
 describe('transformResponse: searchUsers', () => {
-  it('transforms response', async () => {
+  it('transforms response', () => {
     const data = transformResponse({
       total_count: 100,
       incomplete_results: false,

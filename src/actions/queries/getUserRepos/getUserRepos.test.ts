@@ -3,7 +3,7 @@ import mockAxios from 'jest-mock-axios';
 import { getUserRepos } from './getUserRepos';
 import { apiProviderConfig } from '../../../config/apiProviderConfig';
 
-const username = 'username';
+const username = 'usernameTest';
 
 describe('getUserRepos', () => {
   beforeEach(() => {

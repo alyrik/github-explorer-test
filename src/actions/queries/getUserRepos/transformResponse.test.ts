@@ -1,7 +1,7 @@
 import { transformResponse } from './transformResponse';
 
 describe('transformResponse: getUserRepos', () => {
-  it('transforms response', async () => {
+  it('transforms response', () => {
     const data = transformResponse([
       {
         id: 123,
